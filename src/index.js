@@ -131,6 +131,34 @@ const init = () => {
       console.error(error);
     }
   }
+
+  async function deleteOffer(id) {
+    try {
+      const r = await fetch(`https://mini-offer-api.onrender.com/offers/${id}`, {
+        method: "DELETE",
+      });
+      if (!r.ok) throw new Error("bad fetch in DELETE");
+      await fetchOffers();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function updateOffer(offer) {
+    try {
+      const r = await fetch(`https://mini-offer-api.onrender.com/offers/${offer.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(offer),
+      });
+      if (!r.ok) throw new Error("bad fetch in PATCH");
+      await fetchOffers();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 };
+
 
 window.addEventListener("DOMContentLoaded", init);
