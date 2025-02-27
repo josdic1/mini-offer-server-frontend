@@ -151,8 +151,7 @@ const init = () => {
 
   async function fetchOffers() {
     try {
-      const r = await fetch(`const API_URL = "https://mini-offer-api.onrender.com";
-/offers`);
+      const r = await fetch(`https://mini-offer-api.onrender.com/offers`);
       if (!r.ok) {
         throw new Error('bad fetch in GET');
       }
@@ -177,8 +176,7 @@ const init = () => {
 
   async function createOffer(newOffer) {
     try {
-      const r = await fetch(`const API_URL = "https://mini-offer-api.onrender.com";
-/offers`, {
+      const r = await fetch(`https://mini-offer-api.onrender.com/offers`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -195,8 +193,7 @@ const init = () => {
 
   async function deleteOffer(id) {
     try {
-      const r = await fetch(`const API_URL = "https://mini-offer-api.onrender.com";
-/offers/${id}`, {
+      const r = await fetch(`https://mini-offer-api.onrender.com/offers/${id}`, {
         method: 'DELETE',
       })
       if (!r.ok) {
@@ -208,8 +205,7 @@ const init = () => {
   }
   async function updateOffer(updatedOffer) {
     try {
-      const r = await fetch(`const API_URL = "https://mini-offer-api.onrender.com";
-/offers/${updatedOffer.id}`, {
+      const r = await fetch(`https://mini-offer-api.onrender.com/offers/${updatedOffer.id}`, {
         method: 'PATCH',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedOffer)
